@@ -1,0 +1,63 @@
+.restaurent {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex: 0.22;
+}
+.restaurent:hover {
+  border: 1px solid rgb(201, 201, 201);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+}
+.restaurent__top__div {
+}
+.restaurent__top__div > p {
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: gray;
+  text-align: left;
+}
+.restaurent__top__div > h3 {
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-align: left;
+}
+.restaurent__img {
+  width: 280px;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  align-self: center;
+}
+.restaurent__mid__div {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.rating {
+  display: flex;
+  flex-direction: row;
+  background-color: green;
+  padding: 5px 15px;
+  align-items: center;
+}
+.rating > h5 {
+  font-weight: 500;
+  color: white;
+}
+.restaurent__bottom__div {
+  text-align: left;
+}
+.restaurent__mid__div > h5 {
+  font-weight: 300;
+  color: rgb(214, 134, 134);
+}
+.restaurent__bottom__div {
+  margin-top: 10px;
+}
+.restaurent__bottom__div > h4 {
+  font-weight: 400;
+  color: rgb(243, 57, 57, 0.7);
+}
