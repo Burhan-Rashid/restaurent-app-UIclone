@@ -5,6 +5,11 @@ import { AiOutlineSearch } from "react-icons/ai"
 function Header() {
     const [search, setSearch] = React.useState("");
     const [sort, setSort] = React.useState("rating");
+
+    const handleSort = (e) => {
+        setSort(e.target.value);
+    }
+
     return (
         <div className="header">
             <div className="search__div">
@@ -15,7 +20,7 @@ function Header() {
                 <div className="sort">
                     <h3>Sort By: </h3>
                     <select value={sort}
-                        onChange={(e) => setSort(e.target.value)}>
+                        onChange={handleSort}>
                         <option value="rating">Rating</option>
                         <option value="pricelh">Price Low to High</option>
                         <option value="pricehl">Price High to low</option>
@@ -26,7 +31,6 @@ function Header() {
                     <button className="filter">Filter</button>
                 </div>
             </div>
-
         </div>
     )
 }

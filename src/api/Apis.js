@@ -4,8 +4,8 @@ const Items = [{
     title: "Milan Dominos",
     tags: ["Indian", "Chinese", "fast food", "noth indian", "Thai", "Mexican"],
     rating: "3.9",
-    eta: "20 minutes",
-    price: "300 per person",
+    eta: "20",
+    price: "300",
     discount: "50% off, use TRYNEW"
 },
 {
@@ -13,8 +13,8 @@ const Items = [{
     title: "Italian Burgos",
     tags: ["Indian", "Chinese", "fast food", "noth indian", "Thai", "Mexican"],
     rating: "2.9",
-    eta: "50 minutes",
-    price: "300 per person",
+    eta: "50",
+    price: "300",
     discount: "50% off, use TRYNEW"
 },
 {
@@ -22,8 +22,8 @@ const Items = [{
     title: "Billz Grillz",
     tags: ["Indian", "Chinese", "fast food", "noth indian", "Thai", "Mexican", "Chinese", "fast food", "noth indian",],
     rating: "4.7",
-    eta: "25 minutes",
-    price: "200 per person",
+    eta: "25",
+    price: "200",
     discount: "50% off, use TRYNEW"
 },
 {
@@ -31,8 +31,8 @@ const Items = [{
     title: "Chunk Desi",
     tags: ["Indian", "Chinese", "fast food", "noth indian", "Thai", "Mexican", "Chinese", "fast food", "noth indian",],
     rating: "4.9",
-    eta: "10 minutes",
-    price: "250 per person",
+    eta: "10",
+    price: "250",
     discount: "50% off, use TRYNEW"
 },
 {
@@ -40,8 +40,8 @@ const Items = [{
     title: "KFC",
     tags: ["Indian", "Chinese", "fast food", "noth indian", "Thai", "Mexican"],
     rating: "4.1",
-    eta: "45 minutes",
-    price: "170 per person",
+    eta: "45",
+    price: "170",
     discount: "50% off, use TRYNEW"
 },
 {
@@ -49,8 +49,8 @@ const Items = [{
     title: "ChickBlast",
     tags: ["Indian", "Thai", "Mexican"],
     rating: "4.9",
-    eta: "5 minutes",
-    price: "160 per person",
+    eta: "12",
+    price: "160",
     discount: "50% off, use TRYNEW"
 },
 {
@@ -58,8 +58,8 @@ const Items = [{
     title: "Shorma",
     tags: ["Indian", "Chinese", "fast food", "noth indian", "Thai", "Mexican"],
     rating: "4.2",
-    eta: "10 minutes",
-    price: "180 per person",
+    eta: "10",
+    price: "180",
     discount: "50% off, use TRYNEW"
 },
 {
@@ -67,8 +67,8 @@ const Items = [{
     title: "Grillz",
     tags: ["Indian", "Chinese", "fast food", "noth indian", "Thai", "Mexican"],
     rating: "4.3",
-    eta: "20 minutes",
-    price: "220 per person",
+    eta: "20",
+    price: "220",
     discount: "50% off, use TRYNEW"
 }
 ]

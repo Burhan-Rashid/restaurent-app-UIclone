@@ -15,8 +15,8 @@ function Restaurent({ image, title, tags, rating, eta, price, discount }) {
                     <AiFillStar color="white" />
                     <h5>{rating}</h5>
                 </div>
-                <h5>{eta}</h5>
-                <h5>{price}</h5>
+                <h5>{eta} minutes</h5>
+                <h5>Rs {price} per person</h5>
             </div>
             <div className="restaurent__bottom__div">
                 <h4>{discount}</h4>
