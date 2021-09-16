@@ -78,11 +78,15 @@ function Main() {
         setFilter(tempFilter);
     }
     const handleApplyFilter = () => {
-        let newData = data.filter(({ tags }) => {
-            let itemPresent = tags.some(item => filter.includes(item))
-            return itemPresent
-        })
-        setData(newData.sort(dynamicsort("rating", "desc")));
+        if (filter.length > 0) {
+            let newData = data.filter(({ tags }) => {
+                let itemPresent = tags.some(item => filter.includes(item))
+                return itemPresent
+            })
+            setData(newData.sort(dynamicsort("rating", "desc")));
+        } else {
+            setData(Items.sort(dynamicsort("rating", "desc")));
+        }
         closeModal();
     }
     const handleCancelFilter = () => {
@@ -91,12 +95,20 @@ function Main() {
         closeModal();
     }
 
+    const handleSearch = (e) => {
+        setSearch(e.target.value);
+        let tempArr = Items.filter((item) => {
+            return item.title.toLowerCase().includes(e.target.value.toLowerCase())
+        })
+        setData(tempArr);
+    }
+
     return (
         <>
             <div className="header">
                 <div className="search__div">
                     <AiOutlineSearch size={28} color="gray" />
-                    <input type="text" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
+                    <input type="text" placeholder="Search" value={search} onChange={handleSearch} />
                 </div>
                 <div className="next__div">
                     <div className="sort">
@@ -115,9 +127,9 @@ function Main() {
                 </div>
             </div>
             <div className="main">
-                {data.map((item) => {
+                {data.length > 0 ? data.map((item) => {
                     return <Restaurent key={item.title} tags={item.tags} title={item.title} image={item.image} eta={item.eta} price={item.price} discount={item.discount} rating={item.rating} />
-                })}
+                }) : <p>No Results Found!</p>}
             </div>
             <Modal
                 isOpen={modalIsOpen}
