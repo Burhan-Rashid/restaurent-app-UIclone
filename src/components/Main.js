@@ -1,15 +1,29 @@
 import React, { useEffect } from 'react'
 import Restaurent from './card/Restaurent'
 import "./Main.css"
-import Items from "../api/Apis"
+import { Items, filters } from "../api/Apis"
 import "./Header.css"
 import { AiOutlineSearch } from "react-icons/ai"
+import Modal from 'react-modal';
+
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+    },
+};
 
 function Main() {
 
     const [data, setData] = React.useState([]);
     const [search, setSearch] = React.useState("");
     const [sort, setSort] = React.useState("rating");
+    const [filter, setFilter] = React.useState([]);
+    const [modalIsOpen, setIsOpen] = React.useState(false);
 
     function dynamicsort(property, order) {
         var sort_order = 1;
@@ -49,6 +63,34 @@ function Main() {
         setData(Items.sort(dynamicsort("rating", "desc")));
     }, []);
 
+    const openModal = () => {
+        setIsOpen(true);
+    }
+
+    const closeModal = () => {
+        setIsOpen(false);
+    }
+
+    const handleCheckboxChange = (e, item) => {
+        let tempFilter = [...filter];
+        let index = filter.indexOf(item);
+        index === -1 ? tempFilter.push(item) : tempFilter.splice(index, 1);
+        setFilter(tempFilter);
+    }
+    const handleApplyFilter = () => {
+        let newData = data.filter(({ tags }) => {
+            let itemPresent = tags.some(item => filter.includes(item))
+            return itemPresent
+        })
+        setData(newData.sort(dynamicsort("rating", "desc")));
+        closeModal();
+    }
+    const handleCancelFilter = () => {
+        setFilter([]);
+        setData(Items.sort(dynamicsort("rating", "desc")));
+        closeModal();
+    }
+
     return (
         <>
             <div className="header">
@@ -68,7 +110,7 @@ function Main() {
                         </select>
                     </div>
                     <div >
-                        <button className="filter">Filter</button>
+                        <button className="filter" onClick={openModal}>Filter</button>
                     </div>
                 </div>
             </div>
@@ -77,6 +119,24 @@ function Main() {
                     return <Restaurent key={item.title} tags={item.tags} title={item.title} image={item.image} eta={item.eta} price={item.price} discount={item.discount} rating={item.rating} />
                 })}
             </div>
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                style={customStyles}
+                closeTimeoutMS={200}
+            >
+                <div className="modal">
+                    <div className="modal__checkbox">
+                        {filters.map((item) => {
+                            return <label><input type="checkbox" onChange={(e) => handleCheckboxChange(e, item)} checked={filter.indexOf(item) === -1 ? false : true} />{item}</label>
+                        })}
+                    </div>
+                    <div className="modal__buttons">
+                        <button onClick={handleApplyFilter}>Apply Filter</button>
+                        <button onClick={handleCancelFilter}>Cancel All Filters</button>
+                    </div>
+                </div>
+            </Modal>
         </>
     )
 }
