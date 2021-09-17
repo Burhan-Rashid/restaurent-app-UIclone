@@ -17,6 +17,8 @@ const customStyles = {
     },
 };
 
+const PAGE_SIZE = 8;
+
 function Main() {
 
     const [data, setData] = React.useState([]);
@@ -24,6 +26,8 @@ function Main() {
     const [sort, setSort] = React.useState("rating");
     const [filter, setFilter] = React.useState([]);
     const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [numberOfPages, setNumberOfPages] = React.useState([1]);
+    const [currentPage, setCurrentPage] = React.useState(1);
 
     function dynamicsort(property, order) {
         var sort_order = 1;
@@ -59,8 +63,10 @@ function Main() {
     }
 
     useEffect(() => {
+        let pages = Math.ceil(Items.length / PAGE_SIZE);
+        setNumberOfPages(Array.from(new Array(pages), (x, i) => i + 1));
         //localStorage.setItem('items', JSON.stringify(Items));
-        setData(Items.sort(dynamicsort("rating", "desc")));
+        setData(Items.slice(0, PAGE_SIZE).sort(dynamicsort("rating", "desc")));
     }, []);
 
     const openModal = () => {
@@ -97,10 +103,25 @@ function Main() {
 
     const handleSearch = (e) => {
         setSearch(e.target.value);
+        if (e.target.value === "") {
+            setData(Items.slice(0, PAGE_SIZE).sort(dynamicsort("rating", "desc")));
+            return;
+        }
         let tempArr = Items.filter((item) => {
             return item.title.toLowerCase().includes(e.target.value.toLowerCase())
         })
         setData(tempArr);
+        //setData(tempArr.slice((currentPage - 1) * PAGE_SIZE, Math.min(Items.length, currentPage * PAGE_SIZE)).sort(dynamicsort("rating", "desc")));
+    }
+
+    const handlePageChange = (pageNumber) => {
+        if (pageNumber === 1) {
+            setCurrentPage(pageNumber);
+            setData(Items.slice(0, PAGE_SIZE).sort(dynamicsort("rating", "desc")));
+        } else {
+            setCurrentPage(pageNumber);
+            setData(Items.slice((pageNumber - 1) * PAGE_SIZE, Math.min(Items.length, pageNumber * PAGE_SIZE)).sort(dynamicsort("rating", "desc")));
+        }
     }
 
     return (
@@ -130,6 +151,11 @@ function Main() {
                 {data.length > 0 ? data.map((item) => {
                     return <Restaurent key={item.title} tags={item.tags} title={item.title} image={item.image} eta={item.eta} price={item.price} discount={item.discount} rating={item.rating} />
                 }) : <p>No Results Found!</p>}
+            </div>
+            <div className="pagination">
+                {data.length > 0 && numberOfPages.map((i) => {
+                    return <button onClick={() => handlePageChange(i)}>{i}</button>
+                })}
             </div>
             <Modal
                 isOpen={modalIsOpen}

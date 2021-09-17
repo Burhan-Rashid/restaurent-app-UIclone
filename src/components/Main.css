@@ -19,3 +19,9 @@
 .modal__checkbox > label {
   margin-right: 10px;
 }
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 10px;
+  margin: 30px 100px;
+}

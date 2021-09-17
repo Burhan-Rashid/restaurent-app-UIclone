@@ -70,11 +70,47 @@ const Items = [{
     eta: "20",
     price: "220",
     discount: "50% off, use TRYNEW"
+},
+{
+    image: "https://i.ndtvimg.com/i/2016-12/kashmiri-food-620_620x350_51482141365.jpg",
+    title: "Shamiyan",
+    tags: ["chicken", "fried", "wazwan", "mutton"],
+    rating: "4.1",
+    eta: "45",
+    price: "300",
+    discount: "50% off, use TRYNEW"
+},
+{
+    image: "https://www.getyourmenu.in/uploads/blog-images/1575723015_kashmiri-dishes-wedding-menu.jpg",
+    title: "WonderLand",
+    tags: ["mutton", "biryani", "indian"],
+    rating: "4.9",
+    eta: "12",
+    price: "160",
+    discount: "50% off, use TRYNEW"
+},
+{
+    image: "https://hips.hearstapps.com/del.h-cdn.co/assets/15/24/1434133241-milkshakes.jpg",
+    title: "Shake factory",
+    tags: ["shake", "chocolate"],
+    rating: "4.2",
+    eta: "10",
+    price: "160",
+    discount: "50% off, use TRYNEW"
+},
+{
+    image: "https://mc.webpcache.epapr.in/mcms.php?size=large&in=https://mcmscache.epapr.in/post_images/website_266/post_9897253/thumb.jpg",
+    title: "Italian pizza",
+    tags: ["pizza", "italian"],
+    rating: "4.3",
+    eta: "20",
+    price: "210",
+    discount: "50% off, use TRYNEW"
 }
 ]
 
 const filters = ["south-indian", "north-indian", "american", "mexican", "kashmiri", "wazwan", "shorma", "tandoori", "mutton",
-    "chicken", "biryani", "fried", "hot", "meal", "rista", "kabab", "fast-food", "indian", "chinese", "thai"]
+    "chicken", "biryani", "fried", "hot", "meal", "rista", "kabab", "fast-food", "indian", "chinese", "thai", "italian", "pizza"]
 
 export { Items, filters };
 
