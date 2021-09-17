@@ -24,4 +24,16 @@
   justify-content: flex-end;
   padding: 5px 10px;
   margin: 30px 100px;
+  align-items: center;
+}
+.pagination > span {
+  color: gray;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+.pagination > button {
+  cursor: pointer;
+}
+.button__color {
+  background-color: rgba(116, 115, 114, 0.377);
 }

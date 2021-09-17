@@ -153,8 +153,9 @@ function Main() {
                 }) : <p>No Results Found!</p>}
             </div>
             <div className="pagination">
+                <span>Go To Page :</span>
                 {data.length > 0 && numberOfPages.map((i) => {
-                    return <button onClick={() => handlePageChange(i)}>{i}</button>
+                    return <button className={currentPage === i && "button__color"} onClick={() => handlePageChange(i)}>{i}</button>
                 })}
             </div>
             <Modal
