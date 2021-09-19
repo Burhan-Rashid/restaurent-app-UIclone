@@ -1,4 +1,4 @@
-To see the demo of this project go to: restaurent-app-ui-clone.vercel.app
+To see the demo of this project go to: https://restaurent-app-ui-clone.vercel.app
 
 # Getting Started with Create React App
 
