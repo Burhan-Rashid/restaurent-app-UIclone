@@ -8,7 +8,13 @@ function Restaurent({ image, title, tags, rating, eta, price, discount }) {
             <div className="restaurent__top__div">
                 <img className="restaurent__img" src={image} alt="..." />
                 <h3> {title} </h3>
-                <p>{tags}</p>
+                <div className="restaurent__tag__container">
+                    {tags.map((tag) => {
+                        return (<div className="restaurent__tag">
+                            <h4>{tag}, </h4>
+                        </div>)
+                    })}
+                </div>
             </div>
             <div className="restaurent__mid__div">
                 <div className="rating">

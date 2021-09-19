@@ -2,7 +2,7 @@
 const Items = [{
     image: "https://static.toiimg.com/photo/76179976.cms",
     title: "Milan Dominos",
-    tags: ["south-indian", "north-indian", "american", "mexican"],
+    tags: ["south-indian", "north-indian", "american", "mexican", "wazwan", "shorma", "tandoori", "mutton",],
     rating: "3.9",
     eta: "20",
     price: "300",
