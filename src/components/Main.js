@@ -14,6 +14,14 @@ const customStyles = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
+        width: "50%",
+        height: "50%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: "10px",
+        padding: "50px",
+
     },
 };
 
@@ -167,7 +175,7 @@ function Main() {
                 <div className="modal">
                     <div className="modal__checkbox">
                         {filters.map((item) => {
-                            return <label><input type="checkbox" onChange={(e) => handleCheckboxChange(e, item)} checked={filter.indexOf(item) === -1 ? false : true} />{item}</label>
+                            return <div className="modal__filter__container"><label><input type="checkbox" onChange={(e) => handleCheckboxChange(e, item)} checked={filter.indexOf(item) === -1 ? false : true} />{item}</label></div>
                         })}
                     </div>
                     <div className="modal__buttons">
