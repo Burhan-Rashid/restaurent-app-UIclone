@@ -3,10 +3,12 @@
   flex-direction: column;
   padding: 20px;
   flex: 0.22;
+  border: 1px solid #fff;
+  margin-bottom: 2px;
 }
 .restaurent:hover {
   border: 1px solid rgb(201, 201, 201);
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 .restaurent__top__div {
